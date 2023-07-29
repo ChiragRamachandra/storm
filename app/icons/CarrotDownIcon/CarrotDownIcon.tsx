@@ -21,9 +21,9 @@ const CarrotDownIcon = (props: Props) => {
 					<path
 						d='M140 25.5L145 30.5L150 25.5'
 						stroke='#1A1A1A'
-						stroke-width='1.8'
-						stroke-linecap='round'
-						stroke-linejoin='round'
+						strokeWidth='1.8'
+						strokeLinecap='round'
+						strokeLinejoin='round'
 					/>
 				</g>
 				<defs>
