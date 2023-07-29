@@ -3,6 +3,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { StormLogo } from '@/app/icons/StormLogo';
+import { StormText } from '@/app/icons/StormText';
+import { SettingsIcon } from '@/app/icons/SettingsIcon';
+import { NotificationIcon } from '@/app/icons/NotificationIcon';
+import { UserIcon } from '@/app/icons/UserIcon';
 
 type Props = {};
 
@@ -16,8 +20,12 @@ const Header = (props: Props) => {
 			>
 				<div className='flex lg:flex-1'>
 					<a href='#' className='-m-1.5 p-1.5'>
-						<span className='sr-only'>Your Company</span>
-						<StormLogo />
+						<div className='flex flex-row items-center justify-between m-2'>
+							<span className='mr-2'>
+								<StormLogo />
+							</span>
+							<StormText />
+						</div>
 					</a>
 				</div>
 				<div className='flex lg:hidden'>
@@ -32,8 +40,11 @@ const Header = (props: Props) => {
 				</div>
 
 				<div className='hidden lg:flex lg:flex-1 lg:justify-end'>
+					<SettingsIcon />
+					<NotificationIcon />
+					<UserIcon />
 					<a href='#' className='text-sm font-semibold leading-6 text-gray-900'>
-						Log in <span aria-hidden='true'>&rarr;</span>
+						Adriana Arias
 					</a>
 				</div>
 			</nav>
