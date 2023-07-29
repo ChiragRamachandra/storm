@@ -6,26 +6,24 @@ type Props = {};
 const SearchBar = (props: Props) => {
 	return (
 		<div>
-			<div className='flex items-center justify-cente'>
-				<form>
-					<div className='relative text-gray-600 focus-within:text-gray-400'>
-						<span className='absolute inset-y-0 left-0 flex items-center pl-2'>
-							<button
-								type='submit'
-								className='p-1 focus:outline-none focus:shadow-outline'
-							>
-								<SearchIcon />
-							</button>
-						</span>
-						<input
-							type='search'
-							name='q'
-							className='py-2 text-sm text-white  rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900'
-							placeholder='Search'
-						/>
-					</div>
-				</form>
-				<button />
+			<div className='flex items-center justify-between'>
+				<div className='relative text-gray-600 mr-2'>
+					<span className='absolute inset-y-0 left-0 flex items-center pl-2'>
+						<div className='p-1 focus:outline-none focus:shadow-outline'>
+							<SearchIcon />
+						</div>
+					</span>
+					<input
+						type='search'
+						name='search-bar'
+						className='py-2 text-sm text-black rounded pl-10 border border-[#DCDFE3]'
+						placeholder='Search'
+					/>
+				</div>
+
+				<div className='inline-block rounded border border-[#605DEC] bg-[#605DEC] px-6 py-2 text-sm font-medium text-white'>
+					Search
+				</div>
 			</div>
 		</div>
 	);
