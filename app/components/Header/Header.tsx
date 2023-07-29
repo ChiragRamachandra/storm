@@ -7,6 +7,7 @@ import { StormText } from '@/app/icons/StormText';
 import { SettingsIcon } from '@/app/icons/SettingsIcon';
 import { NotificationIcon } from '@/app/icons/NotificationIcon';
 import { UserIcon } from '@/app/icons/UserIcon';
+import SearchBar from '../SearchBar/SearchBar';
 
 type Props = {};
 
@@ -40,6 +41,7 @@ const Header = (props: Props) => {
 				</div>
 
 				<div className='hidden lg:flex lg:flex-1 lg:justify-end'>
+					<SearchBar />
 					<SettingsIcon />
 					<NotificationIcon />
 					<UserIcon />
