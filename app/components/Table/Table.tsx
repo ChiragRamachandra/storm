@@ -22,11 +22,12 @@ const Table = ({ itemsDataFetched }: Props) => {
 					{itemsDataFetched?.map((item) => (
 						<TableRow
 							key={item.id}
-							id={'ID'}
+							id={item.id}
 							status={'Status'}
-							quantity={'Quantity'}
-							productName={'Product Name'}
-							price={'Price'}
+							quantity={item.quantity}
+							productName={item.product}
+							price={item.total}
+							serial={item.serial}
 						/>
 					))}
 				</tbody>

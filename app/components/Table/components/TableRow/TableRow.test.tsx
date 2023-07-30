@@ -7,13 +7,14 @@ import TableRow from './TableRow';
 test('renders the TableRow', () => {
 	render(
 		<TableRow
-			id={'ID'}
+			id={122}
 			status={'Status'}
-			quantity={'Quantity'}
+			quantity={100}
 			productName={'Product Name'}
-			price={'Price'}
+			price={122}
+			serial='serialNumber'
 		/>
 	);
-	const TableRowGrab = screen.getByTestId('table-row-ID');
+	const TableRowGrab = screen.getByTestId('table-row-122');
 	expect(TableRowGrab).toBeInTheDocument();
 });
