@@ -2,11 +2,17 @@ import { useItems } from '@/app/hooks/useItems';
 import { debounce } from 'lodash';
 import { SearchIcon } from '@/app/icons/SearchIcon';
 import React, { useState } from 'react';
+import { searchResults } from '@/app/utils/searchResults';
 
 type Props = {};
 
 const SearchBar = (props: Props) => {
-	const { searchedString, setSearchedString } = useItems();
+	const {
+		searchedString,
+		setSearchedString,
+		setItemsDataFiltered,
+		itemsDataFetched,
+	} = useItems();
 	const [inputValue, setInputValue] = useState<string>(searchedString);
 
 	const debounceSearch = debounce((searchText: string) => {
@@ -23,6 +29,7 @@ const SearchBar = (props: Props) => {
 
 	const handleSearchClicked = () => {
 		console.log('search clicked', searchedString);
+		setItemsDataFiltered(searchResults(searchedString, itemsDataFetched));
 	};
 
 	return (

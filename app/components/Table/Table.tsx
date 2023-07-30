@@ -7,7 +7,7 @@ import { useItems } from '@/app/hooks/useItems';
 type Props = {};
 
 const Table = (props: Props) => {
-	const { setModalOpen, itemsDataFetched, setSelectedItem } = useItems();
+	const { setModalOpen, itemsDataFiltered, setSelectedItem } = useItems();
 
 	return (
 		<div className='bg-white rounded my-4 overflow-x-auto flex flex-col items-center justify-center'>
@@ -20,7 +20,7 @@ const Table = (props: Props) => {
 					price={'Price'}
 				/>
 				<tbody>
-					{itemsDataFetched?.map((item: ItemProp) => (
+					{itemsDataFiltered?.map((item: ItemProp) => (
 						<TableRow
 							key={item.id}
 							id={item.id}
