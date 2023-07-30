@@ -76,9 +76,7 @@ const Header = (props: Props) => {
 							<NotificationIcon />
 						</div>
 						<div className='my-2'>
-							<p className='text-sm font-semibold leading-6 text-gray-900'>
-								<UserIcon />
-							</p>
+							<UserIcon />
 						</div>
 					</div>
 				)}
