@@ -38,7 +38,7 @@ const Modal = (props: ModalProps) => {
 					</div>
 				</div>
 				{/* Modal Body */}
-				<div className='flex items-center justify-center mb-4'>
+				<div className='flex flex-col md:flex-row items-center justify-center mb-4'>
 					<div>
 						<img src='/images/laptop.png' alt='amazing laptop' />
 					</div>
