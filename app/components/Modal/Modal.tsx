@@ -1,28 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import { ItemProp } from '@/app/data/itemsData';
+import { useItems } from '@/app/hooks/useItems';
 import { CloseIcon } from '@/app/icons/CloseIcon';
 import React, { useEffect, useState } from 'react';
 
-interface ModalProps {
-	showModal: boolean;
-	closeModal: () => void;
-	selectedItem: ItemProp | null;
-}
+interface ModalProps {}
 
-const Modal = ({ showModal, closeModal, selectedItem }: ModalProps) => {
-	const [visible, setVisible] = useState<boolean>(showModal);
+const Modal = (props: ModalProps) => {
+	const {
+		modalOpen,
+		setModalOpen,
+		itemsDataFetched,
+		setItemsDataFetched,
+		selectedItem,
+		setSelectedItem,
+	} = useItems();
 
-	useEffect(() => {
-		setVisible(showModal);
-	}, [showModal]);
-
-	const handleCloseModal = () => {
-		setVisible(false);
-		closeModal();
-	};
-
-	if (!visible) {
+	if (!modalOpen) {
 		return null;
 	}
 
@@ -38,7 +33,7 @@ const Modal = ({ showModal, closeModal, selectedItem }: ModalProps) => {
 						<h2 className='text-2xl'>{selectedItem?.product}</h2>
 					</div>
 					<div className='flex flex-row justify-end  w-1/5'>
-						<button onClick={handleCloseModal}>
+						<button onClick={() => setModalOpen(false)}>
 							<CloseIcon />
 						</button>
 					</div>
@@ -70,7 +65,7 @@ const Modal = ({ showModal, closeModal, selectedItem }: ModalProps) => {
 				<div className='flex flex-row justify-end'>
 					<button
 						className='bg-[#F9F9FB] text-black px-4 py-2 rounded'
-						onClick={handleCloseModal}
+						onClick={() => setModalOpen(false)}
 					>
 						Close Modal
 					</button>

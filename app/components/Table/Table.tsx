@@ -2,14 +2,13 @@ import React from 'react';
 import { ItemProp } from '@/app/data/itemsData';
 import { TableHead } from './components/TableHead';
 import { TableRow } from './components/TableRow';
+import { useItems } from '@/app/hooks/useItems';
 
-type Props = {
-	itemsDataFetched: ItemProp[] | null;
-	setSelectedItem: (item: any) => void;
-	openModal: () => void;
-};
+type Props = {};
 
-const Table = ({ itemsDataFetched, setSelectedItem, openModal }: Props) => {
+const Table = (props: Props) => {
+	const { setModalOpen, itemsDataFetched, setSelectedItem } = useItems();
+
 	return (
 		<div className='bg-white rounded my-4 overflow-x-auto flex flex-col items-center justify-center'>
 			<table className='w-5/6 table-fixed'>
@@ -21,7 +20,7 @@ const Table = ({ itemsDataFetched, setSelectedItem, openModal }: Props) => {
 					price={'Price'}
 				/>
 				<tbody>
-					{itemsDataFetched?.map((item) => (
+					{itemsDataFetched?.map((item: ItemProp) => (
 						<TableRow
 							key={item.id}
 							id={item.id}
@@ -32,7 +31,7 @@ const Table = ({ itemsDataFetched, setSelectedItem, openModal }: Props) => {
 							serial={item.serial}
 							onClick={() => {
 								setSelectedItem(item);
-								openModal();
+								setModalOpen(true);
 							}}
 						/>
 					))}
