@@ -1,4 +1,12 @@
-export const itemsData = [
+export interface ItemProp {
+	product: string;
+	serial: string;
+	id: number;
+	quantity: number;
+	total: number;
+}
+
+export const itemsData: ItemProp[] = [
 	{
 		product: 'Macbook Pro 16 inch (2020 ) For Sale',
 		serial: 'BA9212320',
