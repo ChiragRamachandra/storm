@@ -27,8 +27,12 @@ const Modal = ({ showModal, closeModal, selectedItem }: ModalProps) => {
 	}
 
 	return (
-		<div className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-50'>
-			<div className='bg-white rounded-lg p-4 max-2w-md'>
+		<div
+			data-testid='storm-modal'
+			className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-50'
+		>
+			<div className='bg-white rounded-lg p-4 max-2w'>
+				{/* Modal Header */}
 				<div className='flex flex-row justify-between items-center my-4'>
 					<div className='flex flex-row justify-center items-center w-4/5'>
 						<h2 className='text-2xl'>{selectedItem?.product}</h2>
@@ -39,6 +43,7 @@ const Modal = ({ showModal, closeModal, selectedItem }: ModalProps) => {
 						</button>
 					</div>
 				</div>
+				{/* Modal Body */}
 				<div className='flex items-center justify-center mb-4'>
 					<div>
 						<img src='/images/laptop.png' alt='amazing laptop' />
@@ -61,6 +66,7 @@ const Modal = ({ showModal, closeModal, selectedItem }: ModalProps) => {
 					</div>
 					<p></p>
 				</div>
+				{/* Modal Footer */}
 				<div className='flex flex-row justify-end'>
 					<button
 						className='bg-[#F9F9FB] text-black px-4 py-2 rounded'
