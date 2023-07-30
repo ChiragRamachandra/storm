@@ -1,7 +1,6 @@
 'use client';
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { StormLogo } from '@/app/icons/StormLogo';
 import { StormText } from '@/app/icons/StormText';
 import { SettingsIcon } from '@/app/icons/SettingsIcon';
@@ -14,6 +13,7 @@ type Props = {};
 
 const Header = (props: Props) => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
 	return (
 		<header className='bg-white'>
 			<nav
@@ -32,19 +32,18 @@ const Header = (props: Props) => {
 				</div>
 
 				{/* Mobile Menu Icon */}
-				<div className='flex flex-col'>
-					<div className='flex lg:hidden'>
-						<button
-							type='button'
-							className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'
-							onClick={() => setMobileMenuOpen(!mobileMenuOpen)} // Toggle mobileMenuOpen state on click
-						>
-							<span className='sr-only'>Open main menu</span>
-							<MenuIcon />
-						</button>
-					</div>
+				<div className='flex lg:hidden'>
+					<button
+						type='button'
+						className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'
+						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+					>
+						<span className='sr-only'>Open main menu</span>
+						<MenuIcon />
+					</button>
 				</div>
 
+				{/* Desktop User Details */}
 				<div className='hidden lg:flex lg:flex-1 lg:justify-end'>
 					<SearchBar />
 					<SettingsIcon />
@@ -55,25 +54,27 @@ const Header = (props: Props) => {
 					</p>
 				</div>
 			</nav>
-			<div className='flex flex-col items-end mx-3 justify-center'>
-				<div
-					className={`lg:hidden ${
-						mobileMenuOpen ? 'flex flex-col items-end justify-center' : 'hidden'
-					}`}
-				>
-					<div className='my-2'>
-						<SettingsIcon />
+
+			{/* Mobile Menu */}
+			<div className='flex flex-col items-end mx-3 justify-center lg:hidden'>
+				{mobileMenuOpen && (
+					<div className='flex flex-col items-end'>
+						<div className='my-2'>
+							<SettingsIcon />
+						</div>
+						<div className='my-2'>
+							<NotificationIcon />
+						</div>
+						<div className='my-2'>
+							<p className='text-sm font-semibold leading-6 text-gray-900'>
+								<UserIcon />
+							</p>
+						</div>
 					</div>
-					<div className='my-2'>
-						<NotificationIcon />
-					</div>
-					<div className='my-2'>
-						<p className='text-sm font-semibold leading-6 text-gray-900'>
-							<UserIcon />
-						</p>
-					</div>
-				</div>
+				)}
 			</div>
+
+			{/* Mobile Search Bar */}
 			<div className='md:hidden flex flex-col items-center justify-center my-3'>
 				<div className='flex flex-row items-center justify-center'>
 					<SearchBar />
