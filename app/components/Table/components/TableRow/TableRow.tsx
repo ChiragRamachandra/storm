@@ -1,3 +1,4 @@
+import { useItems } from '@/app/hooks/useItems';
 import React from 'react';
 
 type Props = {
@@ -8,16 +9,24 @@ type Props = {
 	price: number;
 	serial: string;
 	onClick: () => void;
+	onSelect: () => void;
 };
 
 const TableRow = (props: Props) => {
+	const { multiSelectItems } = useItems();
 	return (
 		<tr
-			onClick={props.onClick}
+			className={`cursor-pointer border ${
+				multiSelectItems.includes(props.id) ? 'bg-blue-200' : ''
+			}`}
 			data-testid={`table-row-${props.id}`}
-			className='border-b'
 		>
-			<td className='hidden lg:table-cell py-2 px-2 text-center'>{props.id}</td>
+			<td
+				onClick={() => props.onSelect()}
+				className='hidden lg:table-cell py-2 px-2 text-center'
+			>
+				{props.id}
+			</td>
 			{/* //Since there is no status coming from the data file */}
 			<td className='hidden lg:table-cell py-2 px-2 text-center'>
 				{props.status}
@@ -25,7 +34,7 @@ const TableRow = (props: Props) => {
 			<td className='hidden lg:table-cell py-2 px-2 text-center'>
 				{props.quantity}
 			</td>
-			<td className='py-2 px-2'>
+			<td onClick={props.onClick} className='py-2 px-2 cursor-pointer'>
 				{props.productName} - {props.serial}
 			</td>
 

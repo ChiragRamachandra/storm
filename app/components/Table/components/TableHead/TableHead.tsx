@@ -17,7 +17,7 @@ const TableHead = (props: Props) => {
 				<th className='hidden lg:table-cell py-4 px-2 w-1/6'>
 					{props.quantity}
 				</th>
-				<th className='py-4 px-2'>{props.quantity}</th>
+				<th className='py-4 px-2'>{props.productName}</th>
 				<th className='hidden lg:table-cell py-4 px-2 w-1/6'>{props.price}</th>
 			</tr>
 		</thead>

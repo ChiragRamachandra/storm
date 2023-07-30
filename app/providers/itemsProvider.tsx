@@ -12,6 +12,8 @@ interface ItemsContextProps {
 	setSearchedString: (searchedString: any) => void;
 	itemsDataFiltered: any;
 	setItemsDataFiltered: (items: any) => void;
+	multiSelectItems: any;
+	setMultiSelectItems: (items: any) => void;
 }
 
 export const ItemsContext = React.createContext<ItemsContextProps>({
@@ -25,6 +27,8 @@ export const ItemsContext = React.createContext<ItemsContextProps>({
 	setSearchedString: () => {},
 	itemsDataFiltered: null,
 	setItemsDataFiltered: () => {},
+	multiSelectItems: [],
+	setMultiSelectItems: () => {},
 });
 
 export const ItemsContextProvider = (props: any) => {
@@ -37,6 +41,7 @@ export const ItemsContextProvider = (props: any) => {
 	);
 	const [selectedItem, setSelectedItem] = useState<any>(null);
 	const [searchedString, setSearchedString] = useState<any>(null);
+	const [multiSelectItems, setMultiSelectItems] = useState<number[]>([]);
 
 	return (
 		<ItemsContext.Provider
@@ -51,6 +56,8 @@ export const ItemsContextProvider = (props: any) => {
 				setSearchedString,
 				itemsDataFiltered,
 				setItemsDataFiltered,
+				multiSelectItems,
+				setMultiSelectItems,
 			}}
 		>
 			{props.children}

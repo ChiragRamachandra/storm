@@ -18,3 +18,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 1. RESTful API endpoints to fetch data. - Cannot find the restful endpoint.
 2. JSON file does not have status, key features, description and image of the product.
 3. The design does not tell what to do when clicking the menu open in mobile header.
+4. Not sure where to multiselect, so implemented on id - This is also problematic in mobile view as you will not be able to multiselect, but on click it would open up the modal.

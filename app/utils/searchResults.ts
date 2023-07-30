@@ -4,8 +4,11 @@ const searchResults = (
 	searchText: string,
 	searchArray: ItemProp[]
 ): ItemProp[] => {
+	const escapedSearchText = searchText.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
+	const regex = new RegExp(escapedSearchText, 'i');
+
 	const filteredResults = searchArray.filter((item) =>
-		item.product.toLowerCase().includes(searchText.toLowerCase())
+		regex.test(item.product)
 	);
 
 	return filteredResults;

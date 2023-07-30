@@ -7,7 +7,21 @@ import { useItems } from '@/app/hooks/useItems';
 type Props = {};
 
 const Table = (props: Props) => {
-	const { setModalOpen, itemsDataFiltered, setSelectedItem } = useItems();
+	const {
+		setModalOpen,
+		itemsDataFiltered,
+		setSelectedItem,
+		multiSelectItems,
+		setMultiSelectItems,
+	} = useItems();
+
+	const handleRowClick = (itemId: number) => {
+		setMultiSelectItems((prevSelected: any) =>
+			prevSelected.includes(itemId)
+				? prevSelected.filter((id: any) => id !== itemId)
+				: [...prevSelected, itemId]
+		);
+	};
 
 	return (
 		<div className='bg-white rounded my-4 overflow-x-auto flex flex-col items-center justify-center'>
@@ -33,6 +47,7 @@ const Table = (props: Props) => {
 								setSelectedItem(item);
 								setModalOpen(true);
 							}}
+							onSelect={() => handleRowClick(item.id)}
 						/>
 					))}
 				</tbody>
