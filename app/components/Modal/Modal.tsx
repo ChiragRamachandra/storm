@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import { ItemProp } from '@/app/data/itemsData';
 import { useItems } from '@/app/hooks/useItems';
 import { CloseIcon } from '@/app/icons/CloseIcon';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 interface ModalProps {}
 

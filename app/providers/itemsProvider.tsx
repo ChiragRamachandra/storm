@@ -8,6 +8,8 @@ interface ItemsContextProps {
 	setItemsDataFetched: (items: any) => void;
 	selectedItem: any;
 	setSelectedItem: (items: any) => void;
+	searchedString: any;
+	setSearchedString: (searchedString: any) => void;
 }
 
 export const ItemsContext = React.createContext<ItemsContextProps>({
@@ -17,6 +19,8 @@ export const ItemsContext = React.createContext<ItemsContextProps>({
 	setItemsDataFetched: () => {},
 	selectedItem: null,
 	setSelectedItem: () => {},
+	searchedString: '',
+	setSearchedString: () => {},
 });
 
 export const ItemsContextProvider = (props: any) => {
@@ -25,6 +29,7 @@ export const ItemsContextProvider = (props: any) => {
 		null
 	);
 	const [selectedItem, setSelectedItem] = useState<any>(null);
+	const [searchedString, setSearchedString] = useState<any>(null);
 
 	return (
 		<ItemsContext.Provider
@@ -35,6 +40,8 @@ export const ItemsContextProvider = (props: any) => {
 				setItemsDataFetched,
 				selectedItem,
 				setSelectedItem,
+				searchedString,
+				setSearchedString,
 			}}
 		>
 			{props.children}

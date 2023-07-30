@@ -1,9 +1,30 @@
+import { useItems } from '@/app/hooks/useItems';
+import { debounce } from 'lodash';
 import { SearchIcon } from '@/app/icons/SearchIcon';
-import React from 'react';
+import React, { useState } from 'react';
 
 type Props = {};
 
 const SearchBar = (props: Props) => {
+	const { searchedString, setSearchedString } = useItems();
+	const [inputValue, setInputValue] = useState<string>(searchedString);
+
+	const debounceSearch = debounce((searchText: string) => {
+		setSearchedString(searchText);
+	}, 500);
+
+	const handleInputChange = (event: any) => {
+		const searchText = event.target.value;
+		setInputValue(searchText);
+
+		//debounced incase search uses an api to return the values
+		debounceSearch(searchText);
+	};
+
+	const handleSearchClicked = () => {
+		console.log('search clicked', searchedString);
+	};
+
 	return (
 		<div>
 			<div className='flex items-center justify-between'>
@@ -15,14 +36,19 @@ const SearchBar = (props: Props) => {
 					</span>
 					<input
 						name='search-bar'
+						value={inputValue}
+						onChange={handleInputChange}
 						className='py-2 text-sm text-black rounded pl-10 border border-[#DCDFE3]'
 						placeholder='Search'
 					/>
 				</div>
 
-				<div className='inline-block rounded border border-[#605DEC] bg-[#605DEC] px-6 py-2 text-sm font-medium text-white'>
+				<button
+					className='inline-block rounded border border-[#605DEC] bg-[#605DEC] px-6 py-2 text-sm font-medium text-white'
+					onClick={handleSearchClicked}
+				>
 					Search
-				</div>
+				</button>
 			</div>
 		</div>
 	);
