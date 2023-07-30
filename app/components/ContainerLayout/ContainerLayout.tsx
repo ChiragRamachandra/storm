@@ -10,12 +10,15 @@ import { useItems } from '@/app/hooks/useItems';
 type Props = {};
 
 const ContainerLayout = (props: Props) => {
-	const { itemsDataFetched, setItemsDataFetched } = useItems();
+	const { setItemsDataFetched, itemsDataFiltered, setItemsDataFiltered } =
+		useItems();
 
 	useEffect(() => {
 		//API call would happen here
 		setItemsDataFetched(itemsData);
-	}, [itemsDataFetched, setItemsDataFetched]);
+		setItemsDataFiltered(itemsData);
+	}, [setItemsDataFetched, setItemsDataFiltered]);
+
 	return (
 		<>
 			<Header />
@@ -23,7 +26,7 @@ const ContainerLayout = (props: Props) => {
 				<div className=' flex flex-col w-5/6 justify-start items-start'>
 					<div>
 						Products
-						<span className='ml-1'>{`10 out of ${itemsDataFetched?.length} results`}</span>
+						<span className='ml-1'>{`10 out of ${itemsDataFiltered?.length} results`}</span>
 					</div>
 				</div>
 				<Modal />

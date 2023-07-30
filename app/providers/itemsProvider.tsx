@@ -10,6 +10,8 @@ interface ItemsContextProps {
 	setSelectedItem: (items: any) => void;
 	searchedString: any;
 	setSearchedString: (searchedString: any) => void;
+	itemsDataFiltered: any;
+	setItemsDataFiltered: (items: any) => void;
 }
 
 export const ItemsContext = React.createContext<ItemsContextProps>({
@@ -21,11 +23,16 @@ export const ItemsContext = React.createContext<ItemsContextProps>({
 	setSelectedItem: () => {},
 	searchedString: '',
 	setSearchedString: () => {},
+	itemsDataFiltered: null,
+	setItemsDataFiltered: () => {},
 });
 
 export const ItemsContextProvider = (props: any) => {
 	const [modalOpen, setModalOpen] = useState<boolean>(false);
 	const [itemsDataFetched, setItemsDataFetched] = useState<ItemProp[] | null>(
+		null
+	);
+	const [itemsDataFiltered, setItemsDataFiltered] = useState<ItemProp[] | null>(
 		null
 	);
 	const [selectedItem, setSelectedItem] = useState<any>(null);
@@ -42,6 +49,8 @@ export const ItemsContextProvider = (props: any) => {
 				setSelectedItem,
 				searchedString,
 				setSearchedString,
+				itemsDataFiltered,
+				setItemsDataFiltered,
 			}}
 		>
 			{props.children}
