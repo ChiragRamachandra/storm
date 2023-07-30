@@ -17,7 +17,7 @@ const Header = (props: Props) => {
 	return (
 		<header className='bg-white'>
 			<nav
-				className='mx-auto flex max-w-7xl items-center justify-between p-2 md:p-6 lg:px-8'
+				className='mx-auto flex  lg:w-5/6 max-w-7xl items-center justify-between p-2 md:p-6 lg:px-8'
 				aria-label='Global'
 			>
 				<div className='flex lg:flex-1'>
@@ -44,14 +44,24 @@ const Header = (props: Props) => {
 				</div>
 
 				{/* Desktop User Details */}
-				<div className='hidden lg:flex lg:flex-1 lg:justify-end'>
-					<SearchBar />
-					<SettingsIcon />
-					<NotificationIcon />
-					<UserIcon />
-					<p className='text-sm font-semibold leading-6 text-gray-900'>
-						Adriana Arias
-					</p>
+				<div className='hidden lg:flex lg:flex-row lg:justify-end items-center justify-center'>
+					<span className='mx-2'>
+						<SearchBar />
+					</span>
+					<span className='mx-2'>
+						<SettingsIcon />
+					</span>
+					<span className='mx-2'>
+						<NotificationIcon />
+					</span>
+					<span className='mx-2'>
+						<UserIcon />
+					</span>
+					<span className='mx-2'>
+						<p className='text-sm font-semibold text-[#605DEC]'>
+							Adriana Arias
+						</p>
+					</span>
 				</div>
 			</nav>
 

@@ -7,11 +7,16 @@ type Props = {
 	productName: string;
 	price: number;
 	serial: string;
+	onClick: () => void;
 };
 
 const TableRow = (props: Props) => {
 	return (
-		<tr data-testid={`table-row-${props.id}`} className='border-b'>
+		<tr
+			onClick={props.onClick}
+			data-testid={`table-row-${props.id}`}
+			className='border-b'
+		>
 			<td className='hidden lg:table-cell py-2 px-2 text-center'>{props.id}</td>
 			{/* //Since there is no status coming from the data file */}
 			<td className='hidden lg:table-cell py-2 px-2 text-center'>

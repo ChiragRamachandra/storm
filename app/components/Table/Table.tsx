@@ -5,12 +5,14 @@ import { TableRow } from './components/TableRow';
 
 type Props = {
 	itemsDataFetched: ItemProp[] | null;
+	setSelectedItem: (item: any) => void;
+	openModal: () => void;
 };
 
-const Table = ({ itemsDataFetched }: Props) => {
+const Table = ({ itemsDataFetched, setSelectedItem, openModal }: Props) => {
 	return (
-		<div className='bg-white shadow-md rounded my-4 overflow-x-auto'>
-			<table className='w-full table-fixed'>
+		<div className='bg-white rounded my-4 overflow-x-auto flex flex-col items-center justify-center'>
+			<table className='w-5/6 table-fixed'>
 				<TableHead
 					id={'ID'}
 					status={'Status'}
@@ -28,6 +30,10 @@ const Table = ({ itemsDataFetched }: Props) => {
 							productName={item.product}
 							price={item.total}
 							serial={item.serial}
+							onClick={() => {
+								setSelectedItem(item);
+								openModal();
+							}}
 						/>
 					))}
 				</tbody>

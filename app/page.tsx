@@ -10,10 +10,14 @@ export default function Home() {
 	const [itemsDataFetched, setItemsDataFetched] = useState<ItemProp[] | null>(
 		null
 	);
-	const [selectedItem, setSelectedItem] = useState<ItemProp | null>(null);
+	const [selectedItem, setSelectedItem] = useState<any>(null);
 
 	const handleOpenModal = () => {
 		setModalOpen(true);
+	};
+
+	const handleCloseModal = () => {
+		setModalOpen(false);
 	};
 
 	useEffect(() => {
@@ -21,29 +25,27 @@ export default function Home() {
 		setItemsDataFetched(itemsData);
 	}, [itemsDataFetched]);
 
-	const handleCloseModal = () => {
-		setModalOpen(false);
-	};
-
 	return (
 		<>
 			<Header />
 			<main className='flex min-h-screen flex-col items-center'>
-				<div className=' flex flex-col items-start'>
-					<div className=' '>
-						Products <span className='ml-2'>10 out of 64 results</span>
+				<div className=' flex flex-col w-5/6 justify-start items-start'>
+					<div>
+						Products{' '}
+						<span className='ml-1'>{`10 out of ${itemsDataFetched?.length} results`}</span>
 					</div>
 				</div>
+				<Modal
+					showModal={modalOpen}
+					closeModal={handleCloseModal}
+					selectedItem={selectedItem}
+				/>
 
-				<Table itemsDataFetched={itemsDataFetched} />
-
-				<button
-					className='bg-blue-500 text-white px-4 py-2 rounded'
-					onClick={handleOpenModal}
-				>
-					Open Modal
-				</button>
-				<Modal showModal={modalOpen} closeModal={handleCloseModal} />
+				<Table
+					setSelectedItem={setSelectedItem}
+					itemsDataFetched={itemsDataFetched}
+					openModal={handleOpenModal}
+				/>
 			</main>
 		</>
 	);
