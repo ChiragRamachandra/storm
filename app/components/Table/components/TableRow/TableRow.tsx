@@ -29,8 +29,9 @@ const TableRow = (props: Props) => {
 				{props.productName} - {props.serial}
 			</td>
 
-			{/* should take care of $ symbol */}
-			<td className='hidden lg:table-cell py-2 px-2 text-center'>{`${props.price}`}</td>
+			<td className='hidden lg:table-cell py-2 px-2 text-center'>
+				&#36;{`${props.price}`}
+			</td>
 		</tr>
 	);
 };

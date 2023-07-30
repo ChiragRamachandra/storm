@@ -9,12 +9,11 @@ const SearchBar = (props: Props) => {
 			<div className='flex items-center justify-between'>
 				<div className='relative text-gray-600 mr-2'>
 					<span className='absolute inset-y-0 left-0 flex items-center pl-2'>
-						<div className='p-1 focus:outline-none focus:shadow-outline'>
+						<div className='p-1 focus:shadow-outline'>
 							<SearchIcon />
 						</div>
 					</span>
 					<input
-						type='search'
 						name='search-bar'
 						className='py-2 text-sm text-black rounded pl-10 border border-[#DCDFE3]'
 						placeholder='Search'
