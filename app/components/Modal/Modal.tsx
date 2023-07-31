@@ -7,14 +7,7 @@ import React from 'react';
 interface ModalProps {}
 
 const Modal = (props: ModalProps) => {
-	const {
-		modalOpen,
-		setModalOpen,
-		itemsDataFetched,
-		setItemsDataFetched,
-		selectedItem,
-		setSelectedItem,
-	} = useItems();
+	const { modalOpen, setModalOpen, selectedItem } = useItems();
 
 	if (!modalOpen) {
 		return null;
@@ -28,8 +21,8 @@ const Modal = (props: ModalProps) => {
 			<div className='bg-white rounded-lg p-4 max-2w'>
 				{/* Modal Header */}
 				<div className='flex flex-row justify-between items-center my-4'>
-					<div className='flex flex-row justify-center items-center w-4/5'>
-						<h2 className='text-2xl'>{selectedItem?.product}</h2>
+					<div className='flex flex-row justify-start items-center w-4/5 ml-8'>
+						<h2 className='text-2xl font-bold'>{selectedItem?.product}</h2>
 					</div>
 					<div className='flex flex-row justify-end  w-1/5'>
 						<button onClick={() => setModalOpen(false)}>
@@ -43,14 +36,14 @@ const Modal = (props: ModalProps) => {
 						<img src='/images/laptop.png' alt='amazing laptop' />
 					</div>
 					<div>
-						<h4>Key Features</h4>
-						<ul>
+						<h4 className='font-semibold text-xl mb-2'>Key Features</h4>
+						<ul className='list-disc pl-4'>
 							<li>2.6 GHz Intel Core i7 6-Core (9th Gen)</li>
 							<li> 16GB of 2666 MHz DDR4 RAM | 8TB SSD</li>
 							<li> 16&#34; 3072 x 1920 Retina Display</li>
 							<li> AMD Radeon Pro 5600M GPU (8GB HBM2)</li>
 						</ul>
-						<p className='justify-center max-w-md'>
+						<p className='justify-center max-w-md mt-2'>
 							The Apple 16&#34; MacBook Pro features a 16&#34; Retina Display, a
 							Magic Keyboard with a redesigned scissor mechanism, a six-speaker
 							high-fidelity sound system, and an advanced thermal design. This
@@ -63,10 +56,10 @@ const Modal = (props: ModalProps) => {
 				{/* Modal Footer */}
 				<div className='flex flex-row justify-end'>
 					<button
-						className='bg-[#F9F9FB] text-black px-4 py-2 rounded'
+						className='bg-[#F9F9FB] text-black px-4 py-2 rounded mb-4 mr-6'
 						onClick={() => setModalOpen(false)}
 					>
-						Close Modal
+						Close
 					</button>
 				</div>
 			</div>

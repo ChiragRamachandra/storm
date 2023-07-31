@@ -15,20 +15,18 @@ const Header = (props: Props) => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
-		<header className='bg-white'>
+		<header className='bg-white my-12'>
 			<nav
-				className='mx-auto flex  lg:w-5/6 max-w-7xl items-center justify-between p-2 md:p-6 lg:px-8'
+				className='mx-auto flex  lg:w-5/6 max-w-7xl items-center justify-between  '
 				aria-label='Global'
 			>
 				<div className='flex lg:flex-1'>
-					<a href='#' className='-m-1.5 p-1.5'>
-						<div className='flex flex-row items-center justify-between m-2'>
-							<span className='mr-2'>
-								<StormLogo />
-							</span>
-							<StormText />
-						</div>
-					</a>
+					<div className='flex flex-row items-center justify-between m-2'>
+						<span>
+							<StormLogo />
+						</span>
+						<StormText />
+					</div>
 				</div>
 
 				{/* Mobile Menu Icon */}
@@ -45,19 +43,19 @@ const Header = (props: Props) => {
 
 				{/* Desktop User Details */}
 				<div className='hidden lg:flex lg:flex-row lg:justify-end items-center justify-center'>
-					<span className='mx-2'>
+					<span className='mx-10'>
 						<SearchBar />
 					</span>
-					<span className='mx-2'>
+					<span className='mx-4'>
 						<SettingsIcon />
 					</span>
-					<span className='mx-2'>
+					<span className='mx-4'>
 						<NotificationIcon />
 					</span>
-					<span className='mx-2'>
+					<span className='ml-4 mr-2'>
 						<UserIcon />
 					</span>
-					<span className='mx-2'>
+					<span>
 						<p className='text-sm font-semibold text-[#605DEC]'>
 							Adriana Arias
 						</p>

@@ -1,3 +1,4 @@
+import { StatusButton } from '@/app/components/StatusButton';
 import { useItems } from '@/app/hooks/useItems';
 import React from 'react';
 
@@ -20,25 +21,27 @@ const TableRow = (props: Props) => {
 				multiSelectItems.includes(props.id) ? 'bg-blue-200' : ''
 			}`}
 			data-testid={`table-row-${props.id}`}
+			onClick={() => props.onSelect()}
 		>
-			<td
-				onClick={() => props.onSelect()}
-				className='hidden lg:table-cell py-2 px-2 text-center'
-			>
-				{props.id}
-			</td>
-			{/* //Since there is no status coming from the data file */}
+			<td className='hidden lg:table-cell py-2 px-2 text-center'>{props.id}</td>
 			<td className='hidden lg:table-cell py-2 px-2 text-center'>
-				{props.status}
+				<StatusButton
+					buttonValue={props.status}
+					backgroundColor='E4E4EF'
+					textColor='605DEC'
+				/>
 			</td>
 			<td className='hidden lg:table-cell py-2 px-2 text-center'>
 				{props.quantity}
 			</td>
 			<td onClick={props.onClick} className='py-2 px-2 cursor-pointer'>
-				{props.productName} - {props.serial}
+				<div className='flex flex-col'>
+					<div>{props.productName}</div>
+					<div className='font-thin text-sm'>{props.serial}</div>
+				</div>
 			</td>
 
-			<td className='hidden lg:table-cell py-2 px-2 text-center'>
+			<td className='hidden lg:table-cell py-2 px-2 text-center border'>
 				&#36;{`${props.price}`}
 			</td>
 		</tr>

@@ -29,10 +29,17 @@ const items = [
 		quantity: 26,
 		total: 275.43,
 	},
+	{
+		product: '/ SWE Buy $$',
+		serial: 'SD9212969',
+		id: 5560,
+		quantity: 26,
+		total: 275.43,
+	},
 ];
 
 describe('search results', () => {
-	test("Returns matched item when searchText matches an item's product", () => {
+	it("Returns matched item when searchText matches an item's product", () => {
 		const searchText = 'Gaming Chair';
 		const result = searchResults(searchText, items);
 		expect(result).toEqual([
@@ -46,13 +53,13 @@ describe('search results', () => {
 		]);
 	});
 
-	test("Returns an empty array when searchText does not match any item's product", () => {
+	it("Returns an empty array when searchText does not match any item's product", () => {
 		const searchText = 'Monitor';
 		const result = searchResults(searchText, items);
 		expect(result).toEqual([]);
 	});
 
-	test('Performs case-insensitive search', () => {
+	it('Performs case-insensitive search', () => {
 		const searchText = 'mACbOOK pRO';
 		const result = searchResults(searchText, items);
 		expect(result).toEqual([
@@ -66,7 +73,7 @@ describe('search results', () => {
 		]);
 	});
 
-	test('Handles special characters in searchText', () => {
+	it('Handles special characters in searchText', () => {
 		const searchText = '^2';
 		const result = searchResults(searchText, items);
 		expect(result).toEqual([
@@ -80,7 +87,7 @@ describe('search results', () => {
 		]);
 	});
 
-	test('Handles searchText with regular expression special characters', () => {
+	it('Handles searchText with regular expression special characters', () => {
 		const searchText = '$$ Ka';
 		const result = searchResults(searchText, items);
 		expect(result).toEqual([
@@ -94,12 +101,25 @@ describe('search results', () => {
 		]);
 	});
 
-	test('Handles multiple special characters in searchText', () => {
+	it('Handles multiple special characters in searchText', () => {
 		const searchText = '**&&';
 		const result = searchResults(searchText, items);
 		expect(result).toEqual([
 			{
 				product: '**&& Mercy Buy $$',
+				serial: 'SD9212969',
+				id: 5560,
+				quantity: 26,
+				total: 275.43,
+			},
+		]);
+	});
+	it('Handles backslash special character in searchText', () => {
+		const searchText = '/ SWE';
+		const result = searchResults(searchText, items);
+		expect(result).toEqual([
+			{
+				product: '/ SWE Buy $$',
 				serial: 'SD9212969',
 				id: 5560,
 				quantity: 26,

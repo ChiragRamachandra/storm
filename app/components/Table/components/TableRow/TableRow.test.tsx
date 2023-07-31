@@ -12,6 +12,8 @@ test('renders the TableRow', () => {
 			productName={'Product Name'}
 			price={122}
 			serial='serialNumber'
+			onClick={() => {}}
+			onSelect={() => {}}
 		/>
 	);
 	const TableRowGrab = screen.getByTestId('table-row-122');

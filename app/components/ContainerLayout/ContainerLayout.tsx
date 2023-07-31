@@ -25,8 +25,8 @@ const ContainerLayout = (props: Props) => {
 			<main className='flex min-h-screen flex-col items-center'>
 				<div className=' flex flex-col w-5/6 justify-start items-start'>
 					<div>
-						Products
-						<span className='ml-1'>{`10 out of ${itemsDataFiltered?.length} results`}</span>
+						<span className='font-bold'>Products </span>
+						<span className='ml-1 font-light'>{`10 out of ${itemsDataFiltered?.length} results`}</span>
 					</div>
 				</div>
 				<Modal />
