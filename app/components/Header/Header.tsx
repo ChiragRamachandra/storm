@@ -81,7 +81,7 @@ const Header = (props: Props) => {
 			</div>
 
 			{/* Mobile Search Bar */}
-			<div className='md:hidden flex flex-col items-center justify-center mt-6'>
+			<div className='lg:hidden flex flex-col items-center justify-center mt-6'>
 				<div className='flex flex-row items-center justify-center'>
 					<SearchBar />
 				</div>
