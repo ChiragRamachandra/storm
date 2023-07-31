@@ -35,13 +35,13 @@ const TableRow = (props: Props) => {
 				{props.quantity}
 			</td>
 			<td onClick={props.onClick} className='py-2 px-2 cursor-pointer'>
-				<div className='flex flex-col'>
-					<div>{props.productName}</div>
-					<div className='font-thin text-sm flex-row'>
+				<span className='flex flex-col'>
+					<span>{props.productName}</span>
+					<span className='font-thin text-sm flex-row'>
 						{props.serial}{' '}
 						<span className='md:hidden'>{` - Qty: ${props.quantity}`}</span>
-					</div>
-				</div>
+					</span>
+				</span>
 			</td>
 
 			<td className='hidden lg:table-cell py-2 px-2 text-center border'>

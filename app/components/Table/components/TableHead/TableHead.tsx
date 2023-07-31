@@ -11,7 +11,7 @@ type Props = {
 
 const TableHead = (props: Props) => {
 	return (
-		<thead data-testid='table-head border'>
+		<thead data-testid='table-head'>
 			<tr className='font-bold text-center border'>
 				<th className='hidden lg:table-cell py-4 px-2 w-1/6'>{props.id}</th>
 				<th className='hidden lg:table-cell py-4 px-2 w-1/6'>{props.status}</th>
