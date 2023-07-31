@@ -37,7 +37,10 @@ const TableRow = (props: Props) => {
 			<td onClick={props.onClick} className='py-2 px-2 cursor-pointer'>
 				<div className='flex flex-col'>
 					<div>{props.productName}</div>
-					<div className='font-thin text-sm'>{props.serial}</div>
+					<div className='font-thin text-sm flex-row'>
+						{props.serial}{' '}
+						<span className='md:hidden'>{` - Qty: ${props.quantity}`}</span>
+					</div>
 				</div>
 			</td>
 

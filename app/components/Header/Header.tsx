@@ -20,8 +20,8 @@ const Header = (props: Props) => {
 				className='mx-auto flex  lg:w-5/6 max-w-7xl items-center justify-between  '
 				aria-label='Global'
 			>
-				<div className='flex lg:flex-1'>
-					<div className='flex flex-row items-center justify-between m-2'>
+				<div className='flex lg:flex-1 ml-6 md:ml-0'>
+					<div className='flex flex-row items-center justify-between m-2 '>
 						<span>
 							<StormLogo />
 						</span>
@@ -30,10 +30,10 @@ const Header = (props: Props) => {
 				</div>
 
 				{/* Mobile Menu Icon */}
-				<div className='flex lg:hidden'>
+				<div className='flex lg:hidden mr-6'>
 					<button
 						type='button'
-						className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'
+						className='inline-flex items-center justify-center rounded-md p-2 text-gray-700'
 						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
 					>
 						<span className='sr-only'>Open main menu</span>
@@ -64,7 +64,7 @@ const Header = (props: Props) => {
 			</nav>
 
 			{/* Mobile Menu */}
-			<div className='flex flex-col items-end mx-3 justify-center lg:hidden'>
+			<div className='flex flex-col items-end mx-3 justify-center lg:hidden mr-8'>
 				{mobileMenuOpen && (
 					<div className='flex flex-col items-end'>
 						<div className='my-2'>
@@ -81,7 +81,7 @@ const Header = (props: Props) => {
 			</div>
 
 			{/* Mobile Search Bar */}
-			<div className='md:hidden flex flex-col items-center justify-center my-3'>
+			<div className='md:hidden flex flex-col items-center justify-center mt-6'>
 				<div className='flex flex-row items-center justify-center'>
 					<SearchBar />
 				</div>
