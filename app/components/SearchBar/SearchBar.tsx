@@ -51,6 +51,7 @@ const SearchBar = (props: Props) => {
 				</div>
 
 				<button
+					data-testid='search-bar-button'
 					className='inline-block rounded border border-[#605DEC] bg-[#605DEC] px-6 py-2 text-sm font-medium text-white'
 					onClick={handleSearchClicked}
 				>
@@ -62,7 +63,3 @@ const SearchBar = (props: Props) => {
 };
 
 export default SearchBar;
-
-// search bar render
-
-// set searched string
