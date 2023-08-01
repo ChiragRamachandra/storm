@@ -32,6 +32,7 @@ const Header = (props: Props) => {
 				{/* Mobile Menu Icon */}
 				<div className='flex lg:hidden mr-6'>
 					<button
+						data-testid='mobile-open-menu'
 						type='button'
 						className='inline-flex items-center justify-center rounded-md p-2 text-gray-700'
 						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -66,7 +67,10 @@ const Header = (props: Props) => {
 			{/* Mobile Menu */}
 			<div className='flex flex-col items-end mx-3 justify-center lg:hidden mr-8'>
 				{mobileMenuOpen && (
-					<div className='flex flex-col items-end'>
+					<div
+						data-testid='mobile-menu-dropdown'
+						className='flex flex-col items-end'
+					>
 						<div className='my-2'>
 							<SettingsIcon />
 						</div>
