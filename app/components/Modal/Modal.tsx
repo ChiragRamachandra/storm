@@ -60,6 +60,7 @@ const Modal = (props: ModalProps) => {
 				{/* Modal Footer */}
 				<div className='flex flex-row justify-end'>
 					<button
+						data-testid='close-button'
 						className='bg-[#F9F9FB] text-black px-4 py-2 rounded mb-4 mr-6 w-full md:hidden'
 						onClick={() => setModalOpen(false)}
 					>
