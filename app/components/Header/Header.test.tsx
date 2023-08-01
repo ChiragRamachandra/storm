@@ -1,7 +1,7 @@
 // MyComponent.test.tsx
 import React from 'react';
 import '@testing-library/jest-dom';
-import { screen, render, fireEvent, waitFor } from '@testing-library/react';
+import { screen, render, fireEvent } from '@testing-library/react';
 
 import Header from './Header';
 
