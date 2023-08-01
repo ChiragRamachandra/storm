@@ -18,3 +18,5 @@ const StatusButton = (props: Props) => {
 };
 
 export default StatusButton;
+
+//renders

@@ -33,7 +33,7 @@ const SearchBar = (props: Props) => {
 	};
 
 	return (
-		<div>
+		<div data-testid='search-bar'>
 			<div className='flex items-center justify-between'>
 				<div className='relative text-gray-600 mr-2'>
 					<span className='absolute inset-y-0 left-0 flex items-center pl-2'>
@@ -62,3 +62,7 @@ const SearchBar = (props: Props) => {
 };
 
 export default SearchBar;
+
+// search bar render
+
+// set searched string

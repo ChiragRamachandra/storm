@@ -17,3 +17,5 @@ test('renders the TableHead', () => {
 	const TableHeadGrab = screen.getByTestId('table-head');
 	expect(TableHeadGrab).toBeInTheDocument();
 });
+
+// renders
